@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">PIzza App</string>
+    <string name="app_name">Pizza App</string>
+    <string name="generalInfo">General Info</string>
+    <string name="nextPage">Next</string>
+    <string name="phoneNumHint">phone number</string>
+    <string name="addressHint">address</string>
+    <string name="nameHint">name</string>
+    <string name="title_activity_order_info">OrderInfoActivity</string>
+    <string name="title_activity_confirm">ConfirmActivity</string>
+    <string name="toppingsTitle">Toppings</string>
+    <string name="sizeTitle">Size</string>
+    <string name="pepperoni">Pepperoni</string>
+    <string name="mushroom">Mushroom</string>
+    <string name="pineapple">Pineapple</string>
+    <string name="bacon">Bacon</string>
+    <string name="peppers">Peppers</string>
+    <string name="olives">Olives</string>
+    <string name="smallPizza">Small</string>
+    <string name="mediumPizza">Medium</string>
+    <string name="largePizza">Large</string>
+    <string name="xlPizza">Extra Large</string>
+    <string name="quantityTitle">Quantity</string>
+    <string name="prevPage">Back</string>
+    <string name="itemTitle">Item</string>
+    <string name="priceTitle">Price</string>
+    <string name="confirm">Confirm</string>
+    <string name="saveReceipt">Save Receipt</string>
 </resources>
