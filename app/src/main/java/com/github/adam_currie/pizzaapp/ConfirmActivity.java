@@ -1,6 +1,8 @@
 package com.github.adam_currie.pizzaapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
@@ -11,6 +13,8 @@ import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
 import android.util.Log;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.text.DecimalFormat;
 
 public class ConfirmActivity extends AppCompatActivity implements View.OnClickListener {
@@ -124,11 +128,10 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
         }else if(v == findViewById(R.id.backFromConfirmButton)){
             super.finish();//goes back to starter of this activity
         }else if(v == findViewById(R.id.saveReceiptButton)){
-            //todo
             Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
             intent.addCategory(Intent.CATEGORY_OPENABLE);
-            intent.setType("txt");
-            intent.putExtra(Intent.EXTRA_TITLE, "receipt");
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TITLE, "receipt.txt");
 
             startActivityForResult(intent, CHOOSE_SAVE_REQUEST);
         }
@@ -136,8 +139,21 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
-        if(resultCode == CHOOSE_SAVE_REQUEST){
-            Log.i("debug", "saving receipt");
+        if(requestCode == CHOOSE_SAVE_REQUEST){
+            if(resultCode == RESULT_OK){
+                Log.i("debug", "saving receipt: " + intent.getDataString());
+
+                Uri uri = Uri.parse(intent.getDataString());
+                try {
+                    new SaveToFileTask().execute(
+                            getContentResolver().openOutputStream(uri, "w"),
+                            "todo: replace with real text",
+                            getApplicationContext()
+                    );
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

@@ -79,7 +79,6 @@
         android:id="@+id/orderButton"
         android:layout_marginBottom="55dp"
         android:clickable="true"
-        android:onClick="onButtonClick"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />

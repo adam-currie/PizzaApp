@@ -25,4 +25,5 @@
     <string name="priceTitle">Price</string>
     <string name="confirm">Confirm</string>
     <string name="saveReceipt">Save Receipt</string>
+    <string name="downloadMenu">Download Menu</string>
 </resources>
