@@ -3,13 +3,9 @@ package com.github.adam_currie.pizzaapp;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.content.Intent;
-
-import java.io.FileNotFoundException;
 
 public class GeneralInfoActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int CHOOSE_MENU_SAVE_REQUEST = 1;

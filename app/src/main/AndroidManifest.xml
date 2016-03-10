@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".PizzaApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -18,12 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".OrderInfoActivity"
-            android:label="@string/title_activity_order_info"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ConfirmActivity">
-        </activity>
+        <activity android:name=".ConfirmActivity" />
+        <activity android:name=".OrderInfoActivity"></activity>
     </application>
 
 </manifest>

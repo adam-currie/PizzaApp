@@ -1,11 +1,7 @@
 package com.github.adam_currie.pizzaapp;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.content.Intent;
 import android.widget.CheckBox;
@@ -33,31 +29,45 @@ public class OrderInfoActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         if(v == findViewById(R.id.orderButton)){
-            Intent intent = new Intent(this, ConfirmActivity.class);
-
-            //toppings
-            CheckBox pepperoni = (CheckBox)findViewById(R.id.pepperoniCheckBox);
-            intent.putExtra("pepperoni", pepperoni.isChecked());
-            CheckBox mushroom = (CheckBox)findViewById(R.id.mushroomCheckBox);
-            intent.putExtra("mushroom", mushroom.isChecked());
-            CheckBox olives = (CheckBox)findViewById(R.id.olivesCheckBox);
-            intent.putExtra("olives", olives.isChecked());
-            CheckBox pineapple = (CheckBox)findViewById(R.id.pineappleCheckBox);
-            intent.putExtra("pineapple", pineapple.isChecked());
-            CheckBox peppers = (CheckBox)findViewById(R.id.peppersCheckBox);
-            intent.putExtra("peppers", peppers.isChecked());
-            CheckBox bacon = (CheckBox)findViewById(R.id.baconCheckBox);
-            intent.putExtra("bacon", bacon.isChecked());
+            Order order = ((PizzaApp)getApplication()).getOrder();
 
             //size
             RadioGroup sizeRadGroup = (RadioGroup)findViewById(R.id.sizeRadioGroup);
             RadioButton sizeRadBtn = (RadioButton)findViewById(sizeRadGroup.getCheckedRadioButtonId());
-            intent.putExtra("size", sizeRadBtn.getText());
+            order.setSize((String)sizeRadBtn.getText());
+
+            //toppings
+            order.getToppings().clear();
+            CheckBox pepperoni = (CheckBox)findViewById(R.id.pepperoniCheckBox);
+            if(pepperoni.isChecked()){
+                order.getToppings().add("pepperoni");
+            }
+            CheckBox mushroom = (CheckBox)findViewById(R.id.mushroomCheckBox);
+            if(mushroom.isChecked()){
+                order.getToppings().add("mushroom");
+            }
+            CheckBox olives = (CheckBox)findViewById(R.id.olivesCheckBox);
+            if(olives.isChecked()){
+                order.getToppings().add("olives");
+            }
+            CheckBox pineapple = (CheckBox)findViewById(R.id.pineappleCheckBox);
+            if(pineapple.isChecked()){
+                order.getToppings().add("pineapple");
+            }
+            CheckBox peppers = (CheckBox)findViewById(R.id.peppersCheckBox);
+            if(peppers.isChecked()){
+                order.getToppings().add("peppers");
+            }
+            CheckBox bacon = (CheckBox)findViewById(R.id.baconCheckBox);
+            if(bacon.isChecked()){
+                order.getToppings().add("bacon");
+            }
 
             //quantity
             NumberPicker quantity = (NumberPicker)findViewById(R.id.quantityPicker);
-            intent.putExtra("quantity", quantity.getValue());
+            order.setQuantity(quantity.getValue());
 
+            Intent intent = new Intent(this, ConfirmActivity.class);
             startActivity(intent);
         }else if(v == findViewById(R.id.backFromOrderButton)){
             super.finish();//goes back to starter of this activity

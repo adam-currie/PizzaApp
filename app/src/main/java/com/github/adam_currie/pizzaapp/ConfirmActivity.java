@@ -33,61 +33,39 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
 
         priceTable = (TableLayout)findViewById(R.id.priceTable);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            double total = 0;
+        double total = 0;
 
-            //size
-            Log.i("debug", "pizza size: " + extras.getString("size"));
-            if(extras.getString("size").equals("Small")){
-                addToTable("small pizza", "5.99");
-                total += 5.99;
-            }else if(extras.getString("size").equals("Medium")){
-                addToTable("medium pizza", "7.99");
-                total += 7.99;
-            }else if(extras.getString("size").equals("Large")){
-                addToTable("large pizza", "9.99");
-                total += 9.99;
-            }else if(extras.getString("size").equals("Extra Large")){
-                addToTable("xl pizza", "11.99");
-                total += 11.99;
-            }
+        Order order = ((PizzaApp)getApplication()).getOrder();
 
-            //toppings
-            if(extras.getBoolean("pepperoni")){
-                addToTable("pepperoni", "0.50");
-                total += .50;
-            }
-            if(extras.getBoolean("mushroom")){
-                addToTable("mushroom", "0.50");
-                total += .50;
-            }
-            if(extras.getBoolean("olive")){
-                addToTable("olive", "0.50");
-                total += .50;
-            }
-            if(extras.getBoolean("pineapple")){
-                addToTable("pineapple", "0.50");
-                total += .50;
-            }
-            if(extras.getBoolean("peppers")){
-                addToTable("peppers", "0.50");
-                total += .50;
-            }
-            if(extras.getBoolean("bacon")){
-                addToTable("bacon", "0.50");
-                total += .50;
-            }
-
-            //quantity
-            int quantity = extras.getInt("quantity");
-            Log.i("debug", "pizza quantity: " + quantity);
-            total *= quantity;
-
-            //total
-            addToTable("total", new DecimalFormat("#.##").format(total));
-
+        //size
+        Log.i("debug", "pizza size: " + order.getSize());
+        if(order.getSize().equals("Small")){
+            addToTable("small pizza", "5.99");
+            total += 5.99;
+        }else if(order.getSize().equals("Medium")){
+            addToTable("medium pizza", "7.99");
+            total += 7.99;
+        }else if(order.getSize().equals("Large")){
+            addToTable("large pizza", "9.99");
+            total += 9.99;
+        }else if(order.getSize().equals("Extra Large")){
+            addToTable("xl pizza", "11.99");
+            total += 11.99;
         }
+
+        //toppings
+        for (String topping : order.getToppings()) {
+            addToTable(topping, "0.50");
+            total += .50;
+        }
+
+        //quantity
+        Log.i("debug", "pizza quantity: " + order.getQuantity());
+        total *= order.getQuantity();
+
+        //total
+        addToTable("total", new DecimalFormat("#.##").format(total));
+
     }
 
     private void addToTable(String item, String price) {
