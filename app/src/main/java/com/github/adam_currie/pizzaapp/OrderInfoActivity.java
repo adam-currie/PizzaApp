@@ -67,7 +67,7 @@ public class OrderInfoActivity extends AppCompatActivity implements View.OnClick
             NumberPicker quantity = (NumberPicker)findViewById(R.id.quantityPicker);
             order.setQuantity(quantity.getValue());
 
-            Intent intent = new Intent(this, ConfirmActivity.class);
+            Intent intent = new Intent(this, SidesOrderActivity.class);
             startActivity(intent);
         }else if(v == findViewById(R.id.backFromOrderButton)){
             super.finish();//goes back to starter of this activity

@@ -20,7 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ConfirmActivity" />
-        <activity android:name=".OrderInfoActivity"></activity>
+        <activity android:name=".OrderInfoActivity" />
+        <activity android:name=".SidesOrderActivity"/>
+        <activity android:name=".SideDetailActivity"/>
     </application>
 
 </manifest>

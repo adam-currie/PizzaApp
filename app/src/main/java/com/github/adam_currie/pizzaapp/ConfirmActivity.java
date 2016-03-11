@@ -40,22 +40,22 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
         //size
         Log.i("debug", "pizza size: " + order.getSize());
         if(order.getSize().equals("Small")){
-            addToTable("small pizza", "5.99");
+            addToTable("small pizza", "$5.99");
             total += 5.99;
         }else if(order.getSize().equals("Medium")){
-            addToTable("medium pizza", "7.99");
+            addToTable("medium pizza", "$7.99");
             total += 7.99;
         }else if(order.getSize().equals("Large")){
-            addToTable("large pizza", "9.99");
+            addToTable("large pizza", "$9.99");
             total += 9.99;
         }else if(order.getSize().equals("Extra Large")){
-            addToTable("xl pizza", "11.99");
+            addToTable("xl pizza", "$11.99");
             total += 11.99;
         }
 
         //toppings
         for (String topping : order.getToppings()) {
-            addToTable(topping, "0.50");
+            addToTable(topping, "$0.50");
             total += .50;
         }
 
@@ -63,8 +63,14 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
         Log.i("debug", "pizza quantity: " + order.getQuantity());
         total *= order.getQuantity();
 
+        //sides
+        for(Side side : order.getSides()){
+            addToTable(side.getName(), side.getPriceString());
+            total += (double)side.getPrice()/100;
+        }
+
         //total
-        addToTable("total", new DecimalFormat("#.##").format(total));
+        addToTable("total", "$" + new DecimalFormat("#.##").format(total));
 
     }
 
@@ -97,8 +103,6 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if(v == findViewById(R.id.confirmButton)){
-            //todo
-
             Intent intent = new Intent(this, GeneralInfoActivity.class);
             //setup intent to clear history when going to main activity
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

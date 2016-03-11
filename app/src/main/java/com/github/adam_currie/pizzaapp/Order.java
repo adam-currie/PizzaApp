@@ -35,4 +35,12 @@ public class Order {
         return toppings;
     }
 
+    public void removeSideByName(String name) {
+        for (Side side : sides) {
+            if(side.getName() == name){
+                sides.remove(side);
+                break;
+            }
+        }
+    }
 }
