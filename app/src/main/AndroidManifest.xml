@@ -12,17 +12,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GeneralInfoActivity">
+        <activity android:name=".view.activities.GeneralInfoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ConfirmActivity" />
-        <activity android:name=".OrderInfoActivity" />
-        <activity android:name=".SidesOrderActivity"/>
-        <activity android:name=".SideDetailActivity"/>
+        <activity android:name=".view.activities.ConfirmActivity" />
+        <activity android:name=".view.activities.OrderInfoActivity" />
+        <activity android:name=".view.activities.SidesOrderActivity"/>
+        <activity android:name=".view.activities.SideDetailActivity"/>
     </application>
 
 </manifest>

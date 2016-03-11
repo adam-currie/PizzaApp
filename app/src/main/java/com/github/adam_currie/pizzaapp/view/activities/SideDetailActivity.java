@@ -1,8 +1,10 @@
-package com.github.adam_currie.pizzaapp;
+package com.github.adam_currie.pizzaapp.view.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.github.adam_currie.pizzaapp.R;
 
 public class SideDetailActivity extends AppCompatActivity {
 
@@ -20,7 +22,5 @@ public class SideDetailActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.nameText)).setText(name);
         ((TextView)findViewById(R.id.priceText)).setText(price);
         ((TextView)findViewById(R.id.detailText)).setText(detail);
-
-        //todo populate fields
     }
 }

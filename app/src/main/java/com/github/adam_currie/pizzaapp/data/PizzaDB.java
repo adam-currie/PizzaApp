@@ -1,4 +1,4 @@
-package com.github.adam_currie.pizzaapp;
+package com.github.adam_currie.pizzaapp.data;
 
 import android.content.Context;
 import android.database.Cursor;

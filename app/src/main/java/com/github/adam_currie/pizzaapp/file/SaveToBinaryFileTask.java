@@ -1,8 +1,10 @@
-package com.github.adam_currie.pizzaapp;
+package com.github.adam_currie.pizzaapp.file;
 
-import android.util.Log;
 import android.content.Context;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.ParcelFileDescriptor;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -12,22 +14,24 @@ import java.io.OutputStreamWriter;
 /**
  * Created by Adam on 2016-03-09.
  */
-public class SaveToFileTask extends AsyncTask{
+public class SaveToBinaryFileTask extends AsyncTask {
 
     @Override
     protected Object doInBackground(Object[] params) {
-        OutputStream outStream = (OutputStream) params[0];
-        String data = (String) params[1];///text to save
+        Uri uri = (Uri) params[0];
+        byte[] data = (byte[]) params[1];
         Context context = (Context) params[2];
 
         try {
-            OutputStreamWriter fileOut = new OutputStreamWriter(outStream);
+            ParcelFileDescriptor parcelFile = context.getContentResolver().openFileDescriptor(uri, "w");
+            FileOutputStream fileOut = new FileOutputStream(parcelFile.getFileDescriptor());
             fileOut.write(data);
             fileOut.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 

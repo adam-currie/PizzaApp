@@ -2,6 +2,9 @@ package com.github.adam_currie.pizzaapp;
 
 import android.app.Application;
 
+import com.github.adam_currie.pizzaapp.data.Order;
+import com.github.adam_currie.pizzaapp.data.PizzaDB;
+
 /**
  * Created by Adam on 2016-03-10.
  */

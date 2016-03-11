@@ -1,6 +1,5 @@
-package com.github.adam_currie.pizzaapp;
+package com.github.adam_currie.pizzaapp.view.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -13,8 +12,13 @@ import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
 import android.util.Log;
 
+import com.github.adam_currie.pizzaapp.PizzaApp;
+import com.github.adam_currie.pizzaapp.R;
+import com.github.adam_currie.pizzaapp.data.Order;
+import com.github.adam_currie.pizzaapp.data.Side;
+import com.github.adam_currie.pizzaapp.file.SaveToFileTask;
+
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.text.DecimalFormat;
 
 public class ConfirmActivity extends AppCompatActivity implements View.OnClickListener {

@@ -1,4 +1,4 @@
-package com.github.adam_currie.pizzaapp;
+package com.github.adam_currie.pizzaapp.view.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,10 @@ import android.widget.CheckBox;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import com.github.adam_currie.pizzaapp.PizzaApp;
+import com.github.adam_currie.pizzaapp.R;
+import com.github.adam_currie.pizzaapp.data.Order;
 
 public class OrderInfoActivity extends AppCompatActivity implements View.OnClickListener {
 

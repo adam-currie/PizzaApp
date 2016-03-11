@@ -1,16 +1,14 @@
-package com.github.adam_currie.pizzaapp;
+package com.github.adam_currie.pizzaapp.file;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.ParcelFileDescriptor;
+
+import com.github.adam_currie.pizzaapp.file.SaveToBinaryFileTask;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 

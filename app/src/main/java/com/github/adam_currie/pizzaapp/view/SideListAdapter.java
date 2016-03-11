@@ -1,9 +1,12 @@
-package com.github.adam_currie.pizzaapp;
+package com.github.adam_currie.pizzaapp.view;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+
+import com.github.adam_currie.pizzaapp.data.Order;
+import com.github.adam_currie.pizzaapp.data.Side;
 
 import java.util.ArrayList;
 

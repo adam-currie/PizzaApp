@@ -1,5 +1,7 @@
-package com.github.adam_currie.pizzaapp;
 
+package com.github.adam_currie.pizzaapp.data;
+
+import com.github.adam_currie.pizzaapp.data.Side;
 import java.util.ArrayList;
 
 /**

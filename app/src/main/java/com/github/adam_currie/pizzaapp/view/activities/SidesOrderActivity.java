@@ -1,10 +1,16 @@
-package com.github.adam_currie.pizzaapp;
+package com.github.adam_currie.pizzaapp.view.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+
+import com.github.adam_currie.pizzaapp.PizzaApp;
+import com.github.adam_currie.pizzaapp.R;
+import com.github.adam_currie.pizzaapp.data.PizzaDB;
+import com.github.adam_currie.pizzaapp.data.Side;
+import com.github.adam_currie.pizzaapp.view.SideListAdapter;
 
 import java.util.ArrayList;
 

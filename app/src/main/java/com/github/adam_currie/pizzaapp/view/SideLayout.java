@@ -1,4 +1,4 @@
-package com.github.adam_currie.pizzaapp;
+package com.github.adam_currie.pizzaapp.view;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,11 @@ import android.view.View.OnClickListener;
 import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.github.adam_currie.pizzaapp.R;
+import com.github.adam_currie.pizzaapp.data.Order;
+import com.github.adam_currie.pizzaapp.data.Side;
+import com.github.adam_currie.pizzaapp.view.activities.SideDetailActivity;
 
 /**
  * Created by Adam on 2016-03-10.
